@@ -2,14 +2,19 @@
 
 int main()
 {
-    int matriz[3][3], maior = 0, pos[2];
+    int matriz[3][3], maior, pos[2];
 
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
         {
-            printf("i:%i , j:%i\n", i, j);
             scanf("%i", &matriz[i][j]);
+            if (i == 0 && j == 0)
+            {
+                maior = matriz[i][j];
+                pos[0] = i;
+                pos[1] = j;
+            }
             if (matriz[i][j] > maior)
             {
                 maior = matriz[i][j];

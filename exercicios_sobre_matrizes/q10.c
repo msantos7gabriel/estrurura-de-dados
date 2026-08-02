@@ -8,7 +8,6 @@ int main()
     {
         for (int j = 0; j < 10; j++)
         {
-            printf("i:%i , j:%i\n", i, j);
             scanf("%i", &matriz[i][j]);
         }
     }
@@ -16,7 +15,7 @@ int main()
     {
         for (int j = 0; j < 10; j++)
         {
-            if (((i + j) < 9))
+            if ((i + j) < 9)
             {
                 printf("Valor: %i, linha: %i, coluna: %i\n", matriz[i][j], i, j);
             }

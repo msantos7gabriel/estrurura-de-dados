@@ -8,7 +8,6 @@ int main()
     {
         for (int j = 0; j < 5; j++)
         {
-            printf("i:%i , j:%i\n", i, j);
             scanf("%i", &matriz[i][j]);
             soma += matriz[i][j];
         }

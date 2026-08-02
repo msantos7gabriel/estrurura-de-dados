@@ -8,7 +8,6 @@ int main()
     {
         for (int j = 0; j < 10; j++)
         {
-            printf("i:%i , j:%i\n", i, j);
             scanf("%i", &matriz[i][j]);
         }
     }
@@ -18,7 +17,7 @@ int main()
         {
             if (i > j)
             {
-                soma += matriz[i][j];
+                soma *= matriz[i][j];
             }
         }
     }
