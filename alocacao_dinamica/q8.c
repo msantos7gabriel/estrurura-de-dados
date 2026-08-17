@@ -11,7 +11,13 @@ int main()
     printf("Digite a quantidade de colunas do vetor: ");
     scanf("%d", &m);
 
-    int maior, soma_linha[n];
+    int maior, *soma_linha = calloc(n, sizeof(soma_linha));
+
+    if (soma_linha == NULL)
+    {
+        printf("\nErro: Memoria insuficiente para o vetor de soma linha.");
+        return 1;
+    }
 
     int **prt_vet = malloc(n * sizeof(*prt_vet));
     if (prt_vet == NULL)
@@ -37,8 +43,9 @@ int main()
     {
         for (unsigned j = 0; j < m; j++)
         {
-            printf("\nEntre com os valores dos indices %d %d:  ", i, j);
+            printf("Entre com os valores dos indices %d %d:  ", i, j);
             scanf("%d", &prt_vet[i][j]);
+
             // Soma de todos os elementos
             soma += prt_vet[i][j];
 
@@ -54,15 +61,23 @@ int main()
             {
                 maior = prt_vet[i][j];
             }
+        }
+    }
+
+    // Disposição de todos os valores
+    for (unsigned int i = 0; i < n; i++)
+    {
+        for (unsigned int j = 0; j < m; j++)
+        {
             printf("\nValor: %d, i: %d, j:%d", prt_vet[i][j], i, j);
         }
     }
 
-    printf("\nSoma todos elementos: %d", soma);
+    printf("\n\nSoma todos elementos: %d\n", soma);
 
     for (unsigned int i = 0; i < n; i++)
     {
-        printf("Linha: %d, Soma: %d", i, soma_linha[i]);
+        printf("\nLinha: %d, Soma: %d", i + 1, soma_linha[i]);
     }
 
     // Liberar a memoria
@@ -71,5 +86,6 @@ int main()
         free(prt_vet[i]);
     }
     free(prt_vet);
+    free(soma_linha);
     return 0;
 }
